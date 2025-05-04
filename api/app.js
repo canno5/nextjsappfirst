@@ -16,9 +16,9 @@ app.use(express.static(staticPath));
 const ContactSchema = new mongoose.Schema({ name: String, phone: String, email: String, message: String });
 const ContactModel = mongoose.model('contactsStudents', ContactSchema);
 
-// app.get("/", (req, res) => {
-//     res.send("Cliend Comunication on Server")
-// });
+app.get("/", (req, res) => {
+    res.send("Cliend Comunication on Server")
+});
 app.post('/contact',(req, res) => {
     const { name, phone, email, msg } = req.body
     ContactModel.create({ name, phone, email, message: msg });
