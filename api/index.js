@@ -9,8 +9,7 @@ require("dotenv").config();
 let port = process.env.PORT;
 app.use(express.json());
 app.use(cors());
-app.use(express.static(staticPath));
-
+// app.use(express.static(staticPath));
 
 const ContactSchema = new mongoose.Schema({ name: String, phone: String, email: String, message: String });
 const ContactModel = mongoose.model('contactsStudents', ContactSchema);
