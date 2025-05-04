@@ -3,15 +3,14 @@ const path = require("path");
 const { default: mongoose } = require("mongoose");
 
 const app = express();
+const staticPath = path.join(__dirname, "../clined");
 const cors = require("cors");
 require("dotenv").config();
 let port = process.env.PORT;
 app.use(express.json());
 app.use(cors());
-const staticPath = path.join(__dirname, "../clined");
-// console.log(staticPath);
-
 app.use(express.static(staticPath));
+
 
 const ContactSchema = new mongoose.Schema({ name: String, phone: String, email: String, message: String });
 const ContactModel = mongoose.model('contactsStudents', ContactSchema);
